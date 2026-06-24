@@ -68,7 +68,7 @@ export async function submitContact(
 
   try {
     const { error: emailError } = await resend.emails.send({
-      from: 'Infoversion <notifications@infoversion.com>',
+      from: 'Infoversion <onboarding@resend.dev>',
       to: process.env.ADMIN_EMAIL!,
       subject: `New enquiry from ${result.data.name}`,
       html: htmlBody,
