@@ -99,7 +99,7 @@ export function ContactForm() {
       <div className="bg-surface border border-border rounded-xl p-10 text-center">
         <p className="text-text-primary font-semibold text-xl mb-3">Message received.</p>
         <p className="text-text-secondary text-lg">
-          Thank you, {state.name}. We&apos;ll be in touch within 1 business day.
+          Thank you, {state.name}. We&apos;ll be in touch within 2 business days.
         </p>
       </div>
     )

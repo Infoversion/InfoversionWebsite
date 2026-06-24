@@ -67,14 +67,17 @@ export async function submitContact(
     </div>`
 
   try {
-    await resend.emails.send({
+    const { error: emailError } = await resend.emails.send({
       from: 'Infoversion <notifications@infoversion.com>',
       to: process.env.ADMIN_EMAIL!,
       subject: `New enquiry from ${result.data.name}`,
       html: htmlBody,
     })
-  } catch (emailError) {
-    console.error('Admin notification email failed:', emailError)
+    if (emailError) {
+      console.error('Admin notification email failed:', JSON.stringify(emailError))
+    }
+  } catch (err) {
+    console.error('Admin notification email threw:', err)
   }
 
   return { success: true, name: result.data.name }
