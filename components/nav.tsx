@@ -19,6 +19,7 @@ export function Nav() {
             width={44}
             height={41}
             priority
+            unoptimized
           />
           <span
             className="text-xl font-semibold tracking-wide text-text-primary select-none"
