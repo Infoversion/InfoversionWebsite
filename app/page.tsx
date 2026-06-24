@@ -61,6 +61,9 @@ export default function HomePage() {
       <section className="relative min-h-[90vh] flex items-center justify-center px-6 py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(79,70,229,0.08)_0%,_transparent_60%)] pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center">
+          <p className="inline-flex items-center gap-2 mb-6 text-xs font-semibold tracking-[0.2em] uppercase gradient-text">
+            Build Smart Apps, Transform Boldly
+          </p>
           <h1 className="text-5xl md:text-7xl font-bold text-text-primary leading-tight tracking-tight mb-6">
             We find the problem.{' '}
             <span className="gradient-text">We build the solution.</span>
