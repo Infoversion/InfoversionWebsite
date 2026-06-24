@@ -67,7 +67,7 @@ export async function replyToSubmission(
     </div>`
 
   const { error: emailError } = await resend.emails.send({
-    from: 'Infoversion <hello@infoversion.com>',
+    from: 'Infoversion <onboarding@resend.dev>',
     to: contactEmail,
     replyTo: process.env.ADMIN_EMAIL,
     subject: 'Re: Your enquiry to Infoversion',
