@@ -16,10 +16,9 @@ export function Nav() {
           <Image
             src="/logo.png"
             alt=""
-            width={40}
-            height={40}
+            width={44}
+            height={41}
             priority
-            style={{ filter: 'drop-shadow(0 0 8px rgba(240,246,252,0.7)) drop-shadow(0 0 20px rgba(240,246,252,0.3))' }}
           />
           <span
             className="text-xl font-semibold tracking-wide text-text-primary select-none"
