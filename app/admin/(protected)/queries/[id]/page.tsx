@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { createServiceClient } from '@/lib/supabase/service'
-import { markAsRead } from '@/actions/admin'
 import { ReplyForm } from '@/components/admin/reply-form'
 import type { ContactSubmission, Reply } from '@/lib/types'
 
@@ -36,7 +35,11 @@ export default async function QueryDetailPage({
   const replies = (repliesData ?? []) as Reply[]
 
   if (submission.status === 'new') {
-    await markAsRead(id)
+    await supabase
+      .from('contact_submissions')
+      .update({ status: 'read' })
+      .eq('id', id)
+      .eq('status', 'new')
   }
 
   return (
