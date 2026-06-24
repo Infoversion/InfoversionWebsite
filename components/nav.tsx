@@ -12,8 +12,24 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center">
-          <Image src="/logo.png" alt="Invoversion" width={160} height={64} priority />
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/logo.png"
+            alt=""
+            width={40}
+            height={40}
+            priority
+            style={{ filter: 'drop-shadow(0 0 8px rgba(240,246,252,0.7)) drop-shadow(0 0 20px rgba(240,246,252,0.3))' }}
+          />
+          <span
+            className="text-xl font-semibold tracking-wide text-text-primary select-none"
+            style={{
+              fontFamily: 'var(--font-display)',
+              textShadow: '0 0 18px rgba(240,246,252,0.55), 0 0 40px rgba(240,246,252,0.2)',
+            }}
+          >
+            Infoversion
+          </span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
