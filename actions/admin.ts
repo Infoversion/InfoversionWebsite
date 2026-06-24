@@ -70,11 +70,22 @@ export async function replyToSubmission(
   }
 
   const supabase = createServiceClient()
-  await supabase.from('replies').insert({ submission_id: submissionId, body })
-  await supabase
+  const { error: insertError } = await supabase
+    .from('replies')
+    .insert({ submission_id: submissionId, body })
+
+  if (insertError) {
+    return { success: false, error: 'Email sent but reply could not be saved. Please check the database.' }
+  }
+
+  const { error: updateError } = await supabase
     .from('contact_submissions')
     .update({ status: 'replied' })
     .eq('id', submissionId)
+
+  if (updateError) {
+    console.error('Failed to update submission status:', updateError)
+  }
 
   revalidatePath(`/admin/queries/${submissionId}`)
   revalidatePath('/admin/queries')

@@ -50,7 +50,7 @@ export async function submitContact(
     }
   }
 
-  await resend.emails.send({
+  const { error: emailError } = await resend.emails.send({
     from: 'Invoversion <notifications@infoversion.com>',
     to: process.env.ADMIN_EMAIL!,
     subject: `New enquiry from ${result.data.name}`,
@@ -63,6 +63,10 @@ export async function submitContact(
       submissionId: submission.id,
     }),
   })
+
+  if (emailError) {
+    console.error('Admin notification email failed:', emailError)
+  }
 
   return { success: true, name: result.data.name }
 }
