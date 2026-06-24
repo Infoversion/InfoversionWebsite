@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
+import { TreePine, Grid3X3, Cast, Smartphone, Apple } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Portfolio',
-  description: 'Heritage, T3, and PresentPro — three products in active development by Invoversion.',
+  description: 'Heritage, T3, and PresentPro — three products in active development by Infoversion.',
 }
 
 const projects = [
   {
+    icon: TreePine,
+    color: 'from-emerald-500 to-teal-500',
     name: 'Heritage',
     tagline: 'Every family has a story. Heritage makes it last.',
     problem:
@@ -18,6 +21,8 @@ const projects = [
     status: 'In Development',
   },
   {
+    icon: Grid3X3,
+    color: 'from-violet-500 to-purple-600',
     name: 'T3',
     tagline: 'The game you grew up with. Rebuilt for players who want more.',
     problem:
@@ -29,6 +34,8 @@ const projects = [
     status: 'In Development',
   },
   {
+    icon: Cast,
+    color: 'from-blue-500 to-cyan-500',
     name: 'PresentPro',
     tagline: 'Your slides on every phone in the room. No screen required.',
     problem:
@@ -49,54 +56,66 @@ export default function PortfolioPage() {
         Three products in active development. Each started with a problem that mattered.
       </p>
       <div className="flex flex-col gap-10">
-        {projects.map((project) => (
-          <article
-            key={project.name}
-            className="bg-surface border border-border rounded-2xl p-8 md:p-10"
-          >
-            <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
-              <div>
-                <h2 className="text-3xl font-bold text-text-primary mb-1">{project.name}</h2>
-                <p className="text-text-secondary">{project.tagline}</p>
-              </div>
-              <span className="text-xs px-3 py-1 rounded-full bg-accent-start/10 text-accent-start border border-accent-start/20 self-start">
-                {project.status}
-              </span>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <h3 className="text-text-secondary text-xs font-semibold uppercase tracking-widest mb-3">
-                  The Problem
-                </h3>
-                <p className="text-text-secondary leading-relaxed text-sm">{project.problem}</p>
-              </div>
-              <div>
-                <h3 className="text-text-secondary text-xs font-semibold uppercase tracking-widest mb-3">
-                  The Solution
-                </h3>
-                <p className="text-text-secondary leading-relaxed text-sm">{project.solution}</p>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {project.platforms.map((p) => (
-                <span
-                  key={p}
-                  className="text-xs px-3 py-1 rounded-full border border-border text-text-secondary"
-                >
-                  {p}
+        {projects.map((project) => {
+          const Icon = project.icon
+          return (
+            <article
+              key={project.name}
+              className="bg-surface border border-border rounded-2xl p-8 md:p-10"
+            >
+              <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
+                <div className="flex items-center gap-4">
+                  <div className={`bg-gradient-to-br ${project.color} w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                    <Icon className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-3xl font-bold text-text-primary mb-1">{project.name}</h2>
+                    <p className="text-text-secondary">{project.tagline}</p>
+                  </div>
+                </div>
+                <span className="text-xs px-3 py-1 rounded-full bg-accent-start/10 text-accent-start border border-accent-start/20 self-start">
+                  {project.status}
                 </span>
-              ))}
-              {project.stack.map((t) => (
-                <span
-                  key={t}
-                  className="text-xs px-3 py-1 rounded-full bg-background border border-border text-text-secondary"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </article>
-        ))}
+              </div>
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="bg-background/50 rounded-xl p-5 border border-border">
+                  <h3 className="text-text-secondary text-xs font-semibold uppercase tracking-widest mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 inline-block" />
+                    The Problem
+                  </h3>
+                  <p className="text-text-secondary leading-relaxed text-sm">{project.problem}</p>
+                </div>
+                <div className="bg-background/50 rounded-xl p-5 border border-border">
+                  <h3 className="text-text-secondary text-xs font-semibold uppercase tracking-widest mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
+                    The Solution
+                  </h3>
+                  <p className="text-text-secondary leading-relaxed text-sm">{project.solution}</p>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2 items-center">
+                <Smartphone className="w-4 h-4 text-text-secondary" />
+                {project.platforms.map((p) => (
+                  <span
+                    key={p}
+                    className="text-xs px-3 py-1 rounded-full border border-border text-text-secondary font-medium"
+                  >
+                    {p}
+                  </span>
+                ))}
+                <span className="text-border mx-1">·</span>
+                {project.stack.map((t) => (
+                  <span
+                    key={t}
+                    className="text-xs px-3 py-1 rounded-full bg-background border border-border text-text-secondary"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </article>
+          )
+        })}
       </div>
     </div>
   )

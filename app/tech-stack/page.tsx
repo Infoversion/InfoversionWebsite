@@ -1,13 +1,19 @@
 import type { Metadata } from 'next'
+import { Smartphone, Globe, Database, Brain, Shield, Server } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Tech Stack',
-  description: 'The technologies Invoversion uses to build iOS, Android, and web products.',
+  description: 'The technologies Infoversion uses to build iOS, Android, and web products.',
 }
 
-const categories: { title: string; rows: { tech: string; what: string; how: string }[] }[] = [
+const categories: {
+  title: string
+  icon: React.ComponentType<{ className?: string }>
+  rows: { tech: string; what: string; how: string }[]
+}[] = [
   {
     title: 'Mobile',
+    icon: Smartphone,
     rows: [
       { tech: 'React Native', what: 'Cross-platform mobile framework', how: 'All iOS + Android apps — single codebase, native performance' },
       { tech: 'Expo SDK 53', what: 'React Native toolchain + APIs', how: 'Build pipeline, OTA updates, device APIs (camera, AR, notifications)' },
@@ -22,12 +28,13 @@ const categories: { title: string; rows: { tech: string; what: string; how: stri
   },
   {
     title: 'Web',
+    icon: Globe,
     rows: [
       { tech: 'Next.js 15', what: 'React framework with App Router', how: 'All web platforms — SSG for marketing, SSR for dynamic data' },
       { tech: 'React 19', what: 'UI library', how: 'Component model, concurrent rendering, server components' },
       { tech: 'TypeScript', what: 'Typed JavaScript', how: 'All web projects — end-to-end type safety' },
       { tech: 'Tailwind CSS v4', what: 'Utility-first CSS', how: 'All styling — no custom CSS files' },
-      { tech: 'shadcn/ui', what: 'Accessible component library', how: 'UI components built on Radix primitives' },
+      { tech: 'shadcn/ui', what: 'Accessible component library', how: 'UI components built on Base UI primitives' },
       { tech: 'Motion (Framer Motion v12)', what: 'Animation library', how: 'Page transitions, scroll animations, micro-interactions' },
       { tech: 'TipTap', what: 'Rich text editor', how: 'Forum posts, memoirs, heritage documentation' },
       { tech: 'Drizzle ORM', what: 'Type-safe SQL ORM', how: 'Database queries with full TypeScript inference' },
@@ -36,6 +43,7 @@ const categories: { title: string; rows: { tech: string; what: string; how: stri
   },
   {
     title: 'Backend & Data',
+    icon: Database,
     rows: [
       { tech: 'Supabase', what: 'PostgreSQL + Auth + RLS + Realtime', how: 'Multi-tenant SaaS backends — data isolation via RLS policies' },
       { tech: 'Neon', what: 'Serverless Postgres', how: "Lightweight projects that don't need the full Supabase surface area" },
@@ -46,6 +54,7 @@ const categories: { title: string; rows: { tech: string; what: string; how: stri
   },
   {
     title: 'AI & Intelligence',
+    icon: Brain,
     rows: [
       { tech: 'Claude API (Anthropic)', what: 'Large language model', how: 'AI personas, post-game coaching, memoir assistants, family historians' },
       { tech: 'Vercel AI SDK', what: 'AI integration toolkit', how: 'Streaming responses, tool use, provider switching' },
@@ -54,6 +63,7 @@ const categories: { title: string; rows: { tech: string; what: string; how: stri
   },
   {
     title: 'Auth, Email & Payments',
+    icon: Shield,
     rows: [
       { tech: 'Supabase Auth', what: 'Authentication service', how: 'Email/password, magic link, Google OAuth — all projects' },
       { tech: 'Clerk', what: 'Auth + user management', how: 'Projects requiring advanced org management and user profiles' },
@@ -64,6 +74,7 @@ const categories: { title: string; rows: { tech: string; what: string; how: stri
   },
   {
     title: 'Infrastructure & Monitoring',
+    icon: Server,
     rows: [
       { tech: 'Vercel', what: 'Deployment platform', how: 'All Next.js deployments — preview branches, edge network' },
       { tech: 'GitHub Actions', what: 'CI/CD', how: 'Automated testing, linting, deployment triggers' },
@@ -85,33 +96,39 @@ export default function TechStackPage() {
         We choose tools based on what ships great products, not trends. This is what we reach for.
       </p>
       <div className="flex flex-col gap-14">
-        {categories.map((cat) => (
-          <section key={cat.title}>
-            <h2 className="text-2xl font-bold text-text-primary mb-6 pb-3 border-b border-border">
-              {cat.title}
-            </h2>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left">
-                    <th className="text-text-secondary font-semibold pb-3 pr-6 w-48">Technology</th>
-                    <th className="text-text-secondary font-semibold pb-3 pr-6">What it is</th>
-                    <th className="text-text-secondary font-semibold pb-3">How we use it</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cat.rows.map((row) => (
-                    <tr key={row.tech} className="border-t border-border">
-                      <td className="py-3 pr-6 font-medium text-text-primary align-top">{row.tech}</td>
-                      <td className="py-3 pr-6 text-text-secondary align-top">{row.what}</td>
-                      <td className="py-3 text-text-secondary align-top">{row.how}</td>
+        {categories.map((cat) => {
+          const Icon = cat.icon
+          return (
+            <section key={cat.title}>
+              <div className="flex items-center gap-3 mb-6 pb-3 border-b border-border">
+                <div className="gradient-bg w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-4 h-4 text-white" />
+                </div>
+                <h2 className="text-2xl font-bold text-text-primary">{cat.title}</h2>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="text-left">
+                      <th className="text-text-secondary font-semibold pb-3 pr-6 w-48">Technology</th>
+                      <th className="text-text-secondary font-semibold pb-3 pr-6">What it is</th>
+                      <th className="text-text-secondary font-semibold pb-3">How we use it</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        ))}
+                  </thead>
+                  <tbody>
+                    {cat.rows.map((row) => (
+                      <tr key={row.tech} className="border-t border-border">
+                        <td className="py-3 pr-6 font-medium text-text-primary align-top">{row.tech}</td>
+                        <td className="py-3 pr-6 text-text-secondary align-top">{row.what}</td>
+                        <td className="py-3 text-text-secondary align-top">{row.how}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )
+        })}
       </div>
     </div>
   )
