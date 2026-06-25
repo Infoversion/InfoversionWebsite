@@ -2,8 +2,16 @@ import type { Metadata } from 'next'
 import { Quote } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'From the CEO',
-  description: 'A note from Ozma A., CEO of Infoversion — on purpose, products, and the journey that shaped the company.',
+  title: 'From the CEO — Ozma A., Infoversion LLC',
+  description:
+    'A note from Ozma A., founder and CEO of Infoversion LLC — on building purpose-driven apps, the journey through pharma and travel industries in the US and Switzerland, and what travel across 8 countries revealed about human connection.',
+  alternates: { canonical: '/from-the-ceo' },
+  openGraph: {
+    title: 'From the CEO — Infoversion',
+    description:
+      'Founder Ozma A. on why Infoversion exists, the products being built, and the journey that led here.',
+    url: 'https://infoversion.com/from-the-ceo',
+  },
 }
 
 export default function FromTheCEOPage() {

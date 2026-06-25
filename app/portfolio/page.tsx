@@ -3,8 +3,16 @@ import { TreePine, Grid3X3, Cast, Smartphone, Users } from 'lucide-react'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Bazidpur, Heritage, T3, and PresentPro — products built and in development by Infoversion.',
+  title: 'Portfolio — Apps Built by Infoversion',
+  description:
+    'Bazidpur (live), Heritage, T3, and PresentPro — iOS and Android apps built and in active development by Infoversion LLC. Purpose-driven software for families, presenters, and players.',
+  alternates: { canonical: '/portfolio' },
+  openGraph: {
+    title: 'Portfolio — Infoversion',
+    description:
+      'Bazidpur, Heritage, T3, and PresentPro — four purpose-driven iOS and Android apps built by Infoversion.',
+    url: 'https://infoversion.com/portfolio',
+  },
 }
 
 const projects = [

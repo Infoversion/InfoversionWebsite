@@ -3,9 +3,16 @@ import Link from 'next/link'
 import { Award, Focus, TrendingUp, Building2, Smartphone, Globe, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About — Infoversion LLC',
   description:
-    'Infoversion LLC — software built on the conviction that the best products solve problems that actually matter.',
+    'Infoversion LLC is a software company based in Dallas, TX. We build iOS apps, Android apps, and web platforms for clients and under our own products — on the conviction that the best software solves problems that actually matter.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Infoversion LLC',
+    description:
+      'Dallas-based software company building iOS, Android, and web products — and providing IT consulting and Agile coaching.',
+    url: 'https://infoversion.com/about',
+  },
 }
 
 const values = [

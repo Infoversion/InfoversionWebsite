@@ -2,8 +2,16 @@ import type { Metadata } from 'next'
 import { Smartphone, Globe, Database, Brain, Shield, Server } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Tech Stack',
-  description: 'The technologies Infoversion uses to build iOS, Android, and web products.',
+  title: 'Tech Stack — React Native, Expo, Supabase, Next.js',
+  description:
+    'Infoversion builds with React Native, Expo, Supabase, Next.js, TypeScript, Firebase, and RevenueCat. Modern, proven technologies for iOS, Android, and web products.',
+  alternates: { canonical: '/tech-stack' },
+  openGraph: {
+    title: 'Tech Stack — Infoversion',
+    description:
+      'React Native, Expo, Supabase, Next.js, TypeScript — the technology stack powering Infoversion products.',
+    url: 'https://infoversion.com/tech-stack',
+  },
 }
 
 const categories: {

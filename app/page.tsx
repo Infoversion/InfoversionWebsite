@@ -1,5 +1,19 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Smartphone, Globe, LineChart, Users } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Infoversion — Mobile App & Web Development | Dallas, TX',
+  description:
+    'Infoversion builds purpose-driven iOS and Android apps, web platforms, and provides IT consulting and Agile coaching. Custom app development for startups and businesses. Dallas, TX.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Infoversion — We find the problem. We build the solution.',
+    description:
+      'iOS and Android apps, web platforms, IT consulting, and Agile coaching. Purpose-built software from Dallas, TX.',
+    url: 'https://infoversion.com',
+  },
+}
 
 const services = [
   {
@@ -69,7 +83,7 @@ export default function HomePage() {
             <span className="gradient-text">We build the solution.</span>
           </h1>
           <p className="text-xl text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed">
-            Invoversion builds high-quality iOS, Android, and web platforms — and provides IT project management, consulting, and Agile transformation services.
+            Infoversion builds high-quality iOS, Android, and web platforms — and provides IT project management, consulting, and Agile transformation services.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link

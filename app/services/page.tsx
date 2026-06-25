@@ -2,8 +2,16 @@ import type { Metadata } from 'next'
 import { Smartphone, Globe, LineChart, Users } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Services',
-  description: 'App development, web development, IT consulting, and Agile transformation services from Infoversion.',
+  title: 'Services — App Development, Web, IT Consulting & Agile Coaching',
+  description:
+    'Infoversion offers iOS app development, Android app development, React Native, web development with Next.js, IT project management consulting, and Agile coaching. Dallas, TX.',
+  alternates: { canonical: '/services' },
+  openGraph: {
+    title: 'Services — Infoversion',
+    description:
+      'iOS and Android app development, web platforms, IT consulting, and Agile coaching — one team, one standard of quality.',
+    url: 'https://infoversion.com/services',
+  },
 }
 
 const services = [
