@@ -6,6 +6,7 @@ const links = [
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Tech Stack', href: '/tech-stack' },
   { label: 'About', href: '/about' },
+  { label: 'From the CEO', href: '/from-the-ceo' },
 ]
 
 export function Nav() {

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Award, Focus, TrendingUp, Building2, Smartphone, Globe } from 'lucide-react'
+import Link from 'next/link'
+import { Award, Focus, TrendingUp, Building2, Smartphone, Globe, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -76,7 +77,7 @@ export default function AboutPage() {
       </section>
 
       {/* Company facts */}
-      <section>
+      <section className="mb-16">
         <h2 className="text-2xl font-bold text-text-primary mb-6">The company</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {facts.map((fact) => {
@@ -94,6 +95,25 @@ export default function AboutPage() {
             )
           })}
         </div>
+      </section>
+
+      {/* CEO link */}
+      <section>
+        <Link
+          href="/from-the-ceo"
+          className="flex items-center justify-between bg-surface border border-border rounded-xl p-6 group hover:border-accent-start/40 transition-colors"
+        >
+          <div>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase gradient-text mb-1">
+              From the CEO
+            </p>
+            <p className="text-text-primary font-semibold">A note from our founder</p>
+            <p className="text-text-secondary text-sm mt-1">
+              On purpose, products, and the journey behind Infoversion.
+            </p>
+          </div>
+          <ArrowRight className="w-5 h-5 text-text-secondary group-hover:text-text-primary transition-colors flex-shrink-0 ml-4" />
+        </Link>
       </section>
     </div>
   )
